@@ -98,8 +98,8 @@ public class Server implements Runnable{
 //                    nickname = in.readLine();
 //                }
 
-                System.out.println(nickname + "connected!");
-                broadcast(nickname + "joined the chat!");
+                System.out.println(nickname + " connected!");
+                broadcast(nickname + " joined the chat!");
 
                 String message;
                 while ((message = in.readLine()) != null) {
