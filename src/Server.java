@@ -58,10 +58,10 @@ public class Server implements Runnable{
 
         try {
             done = true;
+            pool.shutdown();
             if (!server.isClosed()) {
                 server.close();
             }
-
             for (ConnectionHandler ch : connections) {
                 ch.shutdown();
             }
@@ -115,6 +115,7 @@ public class Server implements Runnable{
                         }
                     } else if (message.startsWith("/quit")) {
                         broadcast(nickname + " left the chat.");
+                        System.out.println(nickname + " disconnected");
                         shutdown();
                     }else {
                         broadcast(nickname + ": " + message);
